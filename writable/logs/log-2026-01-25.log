@@ -1,0 +1,98 @@
+ERROR - 2026-01-25 17:07:07 --> mysqli_sql_exception: Invalid default value for 'created_at' in C:\laragon\www\kristel\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\kristel\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `a...', 0)
+#1 C:\laragon\www\kristel\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `a...')
+#2 C:\laragon\www\kristel\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `a...')
+#3 C:\laragon\www\kristel\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `a...')
+#4 C:\laragon\www\kristel\app\Database\Migrations\2026-01-25-170620_CreateAdminsTable.php(34): CodeIgniter\Database\Forge->createTable('admins')
+#5 C:\laragon\www\kristel\system\Database\MigrationRunner.php(874): App\Database\Migrations\CreateAdminsTable->up()
+#6 C:\laragon\www\kristel\system\Database\MigrationRunner.php(180): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\laragon\www\kristel\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\laragon\www\kristel\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\laragon\www\kristel\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\laragon\www\kristel\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 C:\laragon\www\kristel\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\laragon\www\kristel\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2026-01-25 17:07:56 --> mysqli_sql_exception: Invalid default value for 'created_at' in C:\laragon\www\kristel\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\kristel\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `a...', 0)
+#1 C:\laragon\www\kristel\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `a...')
+#2 C:\laragon\www\kristel\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `a...')
+#3 C:\laragon\www\kristel\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `a...')
+#4 C:\laragon\www\kristel\app\Database\Migrations\2026-01-25-170620_CreateAdminsTable.php(34): CodeIgniter\Database\Forge->createTable('admins')
+#5 C:\laragon\www\kristel\system\Database\MigrationRunner.php(874): App\Database\Migrations\CreateAdminsTable->up()
+#6 C:\laragon\www\kristel\system\Database\MigrationRunner.php(180): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\laragon\www\kristel\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\laragon\www\kristel\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\laragon\www\kristel\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\laragon\www\kristel\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 C:\laragon\www\kristel\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\laragon\www\kristel\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2026-01-25 17:08:05 --> mysqli_sql_exception: Invalid default value for 'created_at' in C:\laragon\www\kristel\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\kristel\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `a...', 0)
+#1 C:\laragon\www\kristel\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `a...')
+#2 C:\laragon\www\kristel\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `a...')
+#3 C:\laragon\www\kristel\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `a...')
+#4 C:\laragon\www\kristel\app\Database\Migrations\2026-01-25-170620_CreateAdminsTable.php(34): CodeIgniter\Database\Forge->createTable('admins')
+#5 C:\laragon\www\kristel\system\Database\MigrationRunner.php(874): App\Database\Migrations\CreateAdminsTable->up()
+#6 C:\laragon\www\kristel\system\Database\MigrationRunner.php(180): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\laragon\www\kristel\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\laragon\www\kristel\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\laragon\www\kristel\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\laragon\www\kristel\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 C:\laragon\www\kristel\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\laragon\www\kristel\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2026-01-25 17:52:41 --> mysqli_sql_exception: Duplicate entry 'admin' for key 'admins.username' in C:\laragon\www\kristel\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\kristel\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `ad...', 0)
+#1 C:\laragon\www\kristel\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ad...')
+#2 C:\laragon\www\kristel\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ad...')
+#3 C:\laragon\www\kristel\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ad...', Array, false)
+#4 C:\laragon\www\kristel\app\Database\Seeds\AdminSeeder.php(19): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\laragon\www\kristel\system\Database\Seeder.php(149): App\Database\Seeds\AdminSeeder->run()
+#6 C:\laragon\www\kristel\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#7 C:\laragon\www\kristel\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#8 C:\laragon\www\kristel\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#9 C:\laragon\www\kristel\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#10 C:\laragon\www\kristel\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#11 C:\laragon\www\kristel\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-01-25 17:52:45 --> mysqli_sql_exception: Duplicate entry 'admin' for key 'admins.username' in C:\laragon\www\kristel\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\kristel\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `ad...', 0)
+#1 C:\laragon\www\kristel\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ad...')
+#2 C:\laragon\www\kristel\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ad...')
+#3 C:\laragon\www\kristel\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ad...', Array, false)
+#4 C:\laragon\www\kristel\app\Database\Seeds\AdminSeeder.php(19): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\laragon\www\kristel\system\Database\Seeder.php(149): App\Database\Seeds\AdminSeeder->run()
+#6 C:\laragon\www\kristel\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#7 C:\laragon\www\kristel\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#8 C:\laragon\www\kristel\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#9 C:\laragon\www\kristel\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#10 C:\laragon\www\kristel\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#11 C:\laragon\www\kristel\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2026-01-25 18:05:10 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Builder::first()
+[Method: GET, Route: test]
+in APPPATH\Controllers\Test.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Test->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\kristel\\public\\index.php')
+CRITICAL - 2026-01-25 18:05:32 --> Error: Call to undefined method CodeIgniter\Database\MySQLi\Builder::first()
+[Method: GET, Route: test]
+in APPPATH\Controllers\Test.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Test->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\kristel\\public\\index.php')
