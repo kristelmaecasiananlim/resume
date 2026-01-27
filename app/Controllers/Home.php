@@ -18,4 +18,10 @@ class Home extends BaseController
         
         return view('welcome_message', ['projects' => $projects]);
     }
+
+    // ADD THIS METHOD:
+    public function hobbies(): string
+{
+    return view('pages/hobbies');
+}
 }

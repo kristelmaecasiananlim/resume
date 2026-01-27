@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Kristel Mae C. Lim</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/jpeg" href="/images/kmllogo.jpg">
+    
+    <style>
+        body {
+            background: #f8f9fa;
+            cursor: none;
+        }
+        .dashboard-header {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.15);
+        }
+        .dashboard-header h2 {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        .dashboard-controls {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .dashboard-controls a {
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .dashboard-controls a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+        }
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .table-title {
+            color: #2e7d32;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 1.5rem;
+            border-bottom: 2px solid #e8f5e9;
+            margin: 0;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+        }
+        .table thead {
+            background: #e8f5e9;
+        }
+        .table thead th {
+            color: #2e7d32;
+            font-weight: 700;
+            border: none;
+            padding: 1rem;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        .table tbody td {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 1rem;
+            color: #2d3436;
+        }
+        .table tbody tr:hover {
+            background: #f8f9fa;
+            transition: background 0.2s ease;
+        }
+        .table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .action-link {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        .action-link:hover {
+            color: #1b5e20;
+            background: #e8f5e9;
+            text-decoration: none;
+        }
+        .action-edit {
+            color: #1976d2;
+        }
+        .action-edit:hover {
+            color: #1565c0;
+            background: #e3f2fd;
+        }
+        .action-delete {
+            color: #c62828;
+        }
+        .action-delete:hover {
+            color: #b71c1c;
+            background: #ffcdd2;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+        }
+        .empty-state p {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .modal-header h3 {
+            color: #2e7d32;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .modal-close:hover {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            color: #2d3436;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2e7d32;
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+        .modal-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+        .modal-btn-save {
+            background: #2e7d32;
+            color: white;
+        }
+        .modal-btn-save:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+        }
+        .modal-btn-cancel {
+            background: #e0e0e0;
+            color: #333;
+        }
+        .modal-btn-cancel:hover {
+            background: #bdbdbd;
+        }
+        @media (max-width: 768px) {
+            .dashboard-header {
+                padding: 1.5rem;
+            }
+            .dashboard-header h2 {
+                font-size: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+            .dashboard-controls {
+                flex-direction: column;
+            }
+            .dashboard-controls a {
+                width: 100%;
+                text-align: center;
+            }
+            .table {
+                font-size: 0.9rem;
+            }
+            .table thead th,
+            .table tbody td {
+                padding: 0.75rem;
+            }
+            .action-link {
+                padding: 0.4rem 0.5rem;
+                margin-right: 0.25rem;
+            }
+            .modal-content {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+    
+    <div class="dashboard-header">
+        <div class="section-content">
+            <h2>Welcome, Admin</h2>
+            <div class="dashboard-controls">
+                <a href="/">← Back to Portfolio</a>
+                <a href="/admin/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section-content">
+        <!-- Contact Messages Section -->
+        <div class="table-container">
+            <h3 class="table-title">Contact Messages</h3>
+            
+            <!-- Empty state - remove this div and uncomment table below when you have data -->
+            <div class="empty-state">
+                <p>No contact messages yet.</p>
+            </div>
+            
+            <!-- Uncomment this table when you have contact data
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>John Doe</strong></td>
+                        <td><a href="mailto:john@example.com" style="color: #2e7d32;">john@example.com</a></td>
+                        <td>Project Inquiry</td>
+                        <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">I would like to discuss a potential project...</td>
+                        <td>Jan 27, 2026</td>
+                        <td>
+                            <a href="javascript:void(0)" class="action-link action-edit" onclick="editContact(1, 'John Doe', 'john@example.com', 'Project Inquiry', 'I would like to discuss a potential project...');">Edit</a>
+                            <a href="/admin/deleteContact/1" class="action-link action-delete" onclick="return confirm('Are you sure you want to delete this message?');">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            -->
+        </div>
+    </div>
+    
+    <!-- Projects Section -->
+    <div class="section-content">
+        <div class="table-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem;">
+                <h3 class="table-title" style="margin: 0; border: none; padding: 0;">Projects</h3>
+                <button class="modal-btn modal-btn-save" onclick="openCreateProjectModal();" style="margin: 0;">+ Add Project</button>
+            </div>
+            
+            <!-- Empty state - remove this div and uncomment table below when you have data -->
+            <div class="empty-state">
+                <p>No projects added yet.</p>
+            </div>
+            
+            <!-- Uncomment this table when you have project data
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Order</th>
+                        <th>Title</th>
+                        <th>Date Range</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Sample Project</strong></td>
+                        <td>January - March 2025</td>
+                        <td>
+                            <span style="padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; background: #c8e6c9; color: #2e7d32;">
+                                Active
+                            </span>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" class="action-link action-edit" onclick="editProject(1, 'Sample Project', 'Project description...', 'January - March 2025', 'images/logo.png', 'https://example.com', 'Flutter, Node.js', 'active', 1);">Edit</a>
+                            <a href="/admin/duplicateProject/1" class="action-link" style="color: #7b68ee;" title="Duplicate Project">Duplicate</a>
+                            <a href="/admin/deleteProject/1" class="action-link action-delete" onclick="return confirm('Are you sure you want to delete this project?');">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            -->
+        </div>
+    </div>
+    
+    <!-- Create/Edit Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="projectModalTitle">Create Project</h3>
+                <button class="modal-close" onclick="closeProjectModal();">&times;</button>
+            </div>
+            <form id="projectForm" method="post" action="/admin/createProject">
+                <input type="hidden" id="projectId" name="id">
+                
+                <div class="form-group">
+                    <label for="projectTitle">Title *</label>
+                    <input type="text" id="projectTitle" name="title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectDescription">Description *</label>
+                    <textarea id="projectDescription" name="description" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectDateRange">Date Range *</label>
+                    <input type="text" id="projectDateRange" name="date_range" placeholder="e.g., January - March 2025" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectLogoPath">Logo Path</label>
+                    <input type="text" id="projectLogoPath" name="logo_path" placeholder="e.g., images/project-logo/filename.png">
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectUrl">Project URL</label>
+                    <input type="url" id="projectUrl" name="project_url" placeholder="https://...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectTechnologies">Technologies</label>
+                    <input type="text" id="projectTechnologies" name="technologies" placeholder="e.g., Flutter, Node.js, MongoDB">
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectStatus">Status *</label>
+                    <select id="projectStatus" name="status" required style="width: 100%; padding: 0.75rem; border: 2px solid #e0e0e0; border-radius: 8px;">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectOrder">Display Order</label>
+                    <input type="number" id="projectOrder" name="display_order" value="0" min="0">
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="modal-btn modal-btn-cancel" onclick="closeProjectModal();">Cancel</button>
+                    <button type="submit" class="modal-btn modal-btn-save">Save Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Edit Contact Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Contact Message</h3>
+                <button class="modal-close" onclick="closeModal();">&times;</button>
+            </div>
+            <form id="editForm" method="post" action="/admin/updateContact">
+                <input type="hidden" id="contactId" name="id">
+                
+                <div class="form-group">
+                    <label for="editName">Name</label>
+                    <input type="text" id="editName" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editEmail">Email</label>
+                    <input type="email" id="editEmail" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editSubject">Subject</label>
+                    <input type="text" id="editSubject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editMessage">Message</label>
+                    <textarea id="editMessage" name="message" required></textarea>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="modal-btn modal-btn-cancel" onclick="closeModal();">Cancel</button>
+                    <button type="submit" class="modal-btn modal-btn-save">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function editContact(id, name, email, subject, message) {
+            document.getElementById('contactId').value = id;
+            document.getElementById('editName').value = name;
+            document.getElementById('editEmail').value = email;
+            document.getElementById('editSubject').value = subject;
+            document.getElementById('editMessage').value = message;
+            document.getElementById('editForm').action = '/admin/updateContact/' + id;
+            document.getElementById('editModal').classList.add('show');
+        }
+        
+        function closeModal() {
+            document.getElementById('editModal').classList.remove('show');
+        }
+        
+        function openCreateProjectModal() {
+            document.getElementById('projectId').value = '';
+            document.getElementById('projectTitle').value = '';
+            document.getElementById('projectDescription').value = '';
+            document.getElementById('projectDateRange').value = '';
+            document.getElementById('projectLogoPath').value = '';
+            document.getElementById('projectUrl').value = '';
+            document.getElementById('projectTechnologies').value = '';
+            document.getElementById('projectStatus').value = 'active';
+            document.getElementById('projectOrder').value = '0';
+            document.getElementById('projectModalTitle').textContent = 'Create Project';
+            document.getElementById('projectForm').action = '/admin/createProject';
+            document.getElementById('projectModal').classList.add('show');
+        }
+        
+        function editProject(id, title, description, dateRange, logoPath, url, technologies, status, order) {
+            document.getElementById('projectId').value = id;
+            document.getElementById('projectTitle').value = title;
+            document.getElementById('projectDescription').value = description;
+            document.getElementById('projectDateRange').value = dateRange;
+            document.getElementById('projectLogoPath').value = logoPath;
+            document.getElementById('projectUrl').value = url;
+            document.getElementById('projectTechnologies').value = technologies;
+            document.getElementById('projectStatus').value = status;
+            document.getElementById('projectOrder').value = order;
+            document.getElementById('projectModalTitle').textContent = 'Edit Project';
+            document.getElementById('projectForm').action = '/admin/updateProject/' + id;
+            document.getElementById('projectModal').classList.add('show');
+        }
+        
+        function closeProjectModal() {
+            document.getElementById('projectModal').classList.remove('show');
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const contactModal = document.getElementById('editModal');
+            const projectModal = document.getElementById('projectModal');
+            if (event.target === contactModal) {
+                closeModal();
+            }
+            if (event.target === projectModal) {
+                closeProjectModal();
+            }
+        }
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProjectModal();
+            }
+        });
+        
+        // Custom cursor functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.querySelector('.cursor');
+            const cursorDot = document.querySelector('.cursor-dot');
+            
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                cursorDot.style.left = e.clientX + 'px';
+                cursorDot.style.top = e.clientY + 'px';
+            });
+            
+            document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            });
+        });
+    </script>
+    <script src="/js/animations.js"></script>
+</body>
+</html>

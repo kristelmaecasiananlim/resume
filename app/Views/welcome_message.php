@@ -39,19 +39,21 @@
     </div>
 
     <div class="heroe" id="home">
-        <div class="columns is-vcentered">
-            <div class="column is-narrow">
+    <div class="columns is-vcentered">
+        <div class="column is-narrow">
+            <a href="<?= base_url('hobbies') ?>" title="Click to see my hobbies">
                 <figure class="image custom-profile-size">
                     <img class="is-rounded profile-image" src="<?= base_url('images/profile.jpg') ?>" alt="Kristel Mae C. Lim">
                 </figure>
-            </div>
-            <div class="column">
-                <h1 class="title is-1" style="color: #2e7d32;">Kristel Mae C. Lim</h1>
-                <h2 class="subtitle is-4">Bachelor of Science in Information Technology Student</h2>
-                <p class="subtitle is-5">West Visayas State University | Iloilo City, Philippines</p>
-            </div>
+            </a>
+        </div>
+        <div class="column">
+            <h1 class="title is-1" style="color: #2e7d32;">Kristel Mae C. Lim</h1>
+            <h2 class="subtitle is-4">Bachelor of Science in Information Technology Student | NIS</h2>
+            <p class="subtitle is-5">West Visayas State University | Iloilo City, Philippines</p>
         </div>
     </div>
+</div>
 </header>
 
 <section id="skills" class="fadeInUp">
@@ -414,10 +416,9 @@
     <p>&copy; 2025 Kristel Mae C. Lim. All rights reserved.</p>
 </footer>
 
-<!-- JavaScript -->
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Custom cursor functionality
     const cursor = document.querySelector('.cursor');
     const cursorDot = document.querySelector('.cursor-dot');
 
