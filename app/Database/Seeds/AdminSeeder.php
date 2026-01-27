@@ -8,7 +8,6 @@ class AdminSeeder extends Seeder
 {
     public function run()
     {
-        // Delete existing admin if it exists
         $this->db->table('admins')->where('username', 'admin')->delete();
 
         $data = [
@@ -18,7 +17,6 @@ class AdminSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s'),
         ];
 
-        // Insert data into the 'admins' table
         $this->db->table('admins')->insert($data);
 
         echo "Admin account created with username: admin, password: admin123";

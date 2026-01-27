@@ -252,11 +252,11 @@
                 <div class="award-preview">
                     <img src="<?= base_url('images/awards/iccc.jpg') ?>" alt="ICCC 2025">
                     <div class="award-preview-content">
-                        <div class="award-preview-title">ICCC 2025 International Conference</div>
+                        <!-- <div class="award-preview-title">ICCC 2025 International Conference</div>
                         <p class="award-preview-description">
                             Selected to present research at the International Conference on Creative Computing at National Taipei University of Technology, Taiwan.
                         </p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </a>
