@@ -8,7 +8,6 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->post('contact/submit', 'Contact::submit');
 
-// ADD THIS LINE:
 $routes->get('hobbies', 'Home::hobbies');
 
 // Admin Routes

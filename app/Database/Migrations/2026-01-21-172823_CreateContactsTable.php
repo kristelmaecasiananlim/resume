@@ -8,7 +8,7 @@ class CreateContactsTable extends Migration
 {
     public function up()
     {
-        // STEP: Add fields
+
         $this->forge->addField([
             'id' => [
                 'type'           => 'INT',
@@ -41,10 +41,8 @@ class CreateContactsTable extends Migration
             ],
         ]);
 
-        // STEP: Add primary key
         $this->forge->addKey('id', true);
-        
-        // STEP: Create table
+
         $this->forge->createTable('contacts');
     }
 

@@ -14,13 +14,13 @@ class ContactModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ['name', 'email', 'subject', 'message'];
 
-    // Enable timestamps
+
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // Validation rules
+
     protected $validationRules = [
         'name'    => 'required|min_length[3]|max_length[255]',
         'email'   => 'required|valid_email|max_length[255]',

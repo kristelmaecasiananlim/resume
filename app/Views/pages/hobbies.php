@@ -480,7 +480,7 @@
             <!-- Running -->
             <div class="hobby-card fade-in">
                 <div class="hobby-image-wrapper">
-                    <!-- <img src="<?= base_url('images/hobbies/running.jpg') ?>" alt="Running" class="hobby-image"> -->
+                    <img src="<?= base_url('images/hobbies/running.jpg') ?>" alt="Running" class="hobby-image">
                     <div class="hobby-icon">🏃‍♀️</div>
                 </div>
                 <div class="hobby-content">
@@ -502,7 +502,7 @@
             <!-- Boxing -->
             <div class="hobby-card fade-in">
                 <div class="hobby-image-wrapper">
-                    <!-- <img src="<?= base_url('images/hobbies/boxing.jpg') ?>" alt="Boxing" class="hobby-image"> -->
+                    <img src="<?= base_url('images/hobbies/boxing.jpg') ?>" alt="Boxing" class="hobby-image">
                     <div class="hobby-icon">🥊</div>
                 </div>
                 <div class="hobby-content">
@@ -524,7 +524,7 @@
             <!-- Free Diving -->
             <div class="hobby-card fade-in">
                 <div class="hobby-image-wrapper">
-                    <!-- <img src="<?= base_url('images/hobbies/freediving.jpg') ?>" alt="Free Diving" class="hobby-image"> -->
+                    <img src="<?= base_url('images/hobbies/freediving.jpg') ?>" alt="Free Diving" class="hobby-image">
                     <div class="hobby-icon">🤿</div>
                 </div>
                 <div class="hobby-content">
@@ -546,7 +546,7 @@
             <!-- Drawing -->
             <div class="hobby-card fade-in">
                 <div class="hobby-image-wrapper">
-                    <!-- <img src="<?= base_url('images/hobbies/drawing.jpg') ?>" alt="Drawing" class="hobby-image"> -->
+                    <img src="<?= base_url('images/hobbies/drawing.jpg') ?>" alt="Drawing" class="hobby-image">
                     <div class="hobby-icon">🎨</div>
                 </div>
                 <div class="hobby-content">
@@ -568,7 +568,7 @@
             <!-- Flute Recorder -->
             <div class="hobby-card fade-in">
                 <div class="hobby-image-wrapper">
-                    <!-- <img src="<?= base_url('images/hobbies/flute.jpg') ?>" alt="Flute Recorder" class="hobby-image"> -->
+                    <img src="<?= base_url('images/hobbies/flute.jpg') ?>" alt="Flute Recorder" class="hobby-image">
                     <div class="hobby-icon">🎵</div>
                 </div>
                 <div class="hobby-content">

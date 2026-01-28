@@ -434,7 +434,7 @@ document.querySelectorAll('a, button, .project-card').forEach(el => {
     el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
 });
 
-// Mobile menu toggle
+
 const menuToggle = document.getElementById("menuToggle");
 if (menuToggle) {
     menuToggle.onclick = function() {

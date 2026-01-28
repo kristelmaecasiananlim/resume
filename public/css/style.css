@@ -68,7 +68,6 @@ header li.menu-item a.active {
 }
 
 header li.menu-item a.active::before {
-    /* content: '●'; */
     margin-right: 0.5rem;
     color: #66bb6a;
 }
@@ -374,7 +373,7 @@ header > * {
     transform: translateY(0);
 }
 
-/* Apply animations to page elements */
+
 .heroe {
     animation: fadeInUp 0.8s ease-out forwards;
 }
@@ -395,7 +394,7 @@ header > * {
     opacity: 0;
 }
 
-/* Section entrance animations */
+
 section {
     animation: fadeInUp 0.8s ease-out forwards;
     opacity: 0;
@@ -426,7 +425,6 @@ section:nth-child(8) {
     opacity: 0;
 }
 
-/* Scroll triggered animations (will be controlled by JS) */
 .scroll-animate {
     opacity: 0;
     transform: translateY(30px);

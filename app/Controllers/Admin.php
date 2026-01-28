@@ -57,7 +57,6 @@ class Admin extends BaseController
         return view('admin/dashboard', ['contacts' => $contacts, 'projects' => $projects]);
     }
 
-    // Update contact
     public function updateContact($id)
     {
         $contactModel = new ContactModel();

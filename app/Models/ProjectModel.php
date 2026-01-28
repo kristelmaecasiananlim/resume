@@ -14,13 +14,11 @@ class ProjectModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ['title', 'description', 'date_range', 'logo_path', 'project_url', 'technologies', 'status', 'display_order'];
 
-    // Enable timestamps
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // Validation rules
     protected $validationRules = [
         'title'       => 'required|min_length[3]|max_length[255]',
         'description' => 'required|min_length[10]',
